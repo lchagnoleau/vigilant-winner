@@ -10,7 +10,7 @@ def generate_source(payload):
 	declare = "#define DUCK_LEN " + str(l) + "\nconst uint8_t duckraw [DUCK_LEN] = {\n\t"
 	for c in range(l - 1):
 		declare += str(hex(ord(payload[c]))) + ", "
-	declare += str(hex(ord(payload[l - 1]))) + "\n}"
+	declare += str(hex(ord(payload[l - 1]))) + "\n};"
 
 	return declare
 

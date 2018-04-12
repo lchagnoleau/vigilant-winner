@@ -21,7 +21,7 @@ void USB_init(void)
   MX_USB_DEVICE_Init();
 }
 
-void USB_send_char(char c, char mod)
+void USB_send_char(unsigned char c, unsigned char mod)
 {
   struct keyboardHID_t keyboardHID;
   keyboardHID.id = 1;
