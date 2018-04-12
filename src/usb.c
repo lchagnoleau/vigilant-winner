@@ -21,17 +21,19 @@ void USB_init(void)
   MX_USB_DEVICE_Init();
 }
 
-void USB_send_char(char c)
+void USB_send_char(char c, char mod)
 {
   struct keyboardHID_t keyboardHID;
   keyboardHID.id = 1;
   keyboardHID.modifiers = 0;
   keyboardHID.key = 0;
 
-  keyboardHID.key = HID_KEYBOARD_L;
+  keyboardHID.key = c;
+  keyboardHID.modifiers = mod;
   USBD_HID_SendReport(&hUsbDeviceFS, &keyboardHID, sizeof(struct keyboardHID_t));
-  HAL_Delay(100);
+  HAL_Delay(10);
   keyboardHID.modifiers = 0;
   keyboardHID.key = 0;
   USBD_HID_SendReport(&hUsbDeviceFS, &keyboardHID, sizeof(struct keyboardHID_t));
+  HAL_Delay(10);
 }

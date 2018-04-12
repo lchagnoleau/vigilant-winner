@@ -11,6 +11,6 @@
 #include "hid_usage_keyboard.h"
 
 void USB_init(void);
-void USB_send_char(char c);
+void USB_send_char(char c, char mod);
 
 #endif /* USB_H_ */
