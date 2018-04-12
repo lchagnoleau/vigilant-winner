@@ -6,17 +6,18 @@
  */
 
 #include "init.h"
+#include "stm32f0xx_hal.h"
 
-static void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 
 void init(void)
 {
   SystemClock_Config();
   MX_GPIO_Init();
+  USB_init();
 }
 
-static void SystemClock_Config(void)
+void SystemClock_Config(void)
 {
 
   RCC_OscInitTypeDef RCC_OscInitStruct;

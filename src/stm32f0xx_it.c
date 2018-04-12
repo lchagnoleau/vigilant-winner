@@ -3,6 +3,8 @@
 #include "stm32f0xx.h"
 #include "stm32f0xx_it.h"
 
+extern PCD_HandleTypeDef hpcd_USB_FS;
+
 /******************************************************************************/
 /*            Cortex-M0 Processor Interruption and Exception Handlers         */ 
 /******************************************************************************/
@@ -45,4 +47,12 @@ void SysTick_Handler(void)
 {
   HAL_IncTick();
   HAL_SYSTICK_IRQHandler();
+}
+
+/**
+* @brief This function handles USB global Interrupt / USB wake-up interrupt through EXTI line 18.
+*/
+void USB_IRQHandler(void)
+{
+  HAL_PCD_IRQHandler(&hpcd_USB_FS);
 }

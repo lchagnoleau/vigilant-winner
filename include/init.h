@@ -8,8 +8,7 @@
 #ifndef INIT_H_
 #define INIT_H_
 
-#include "stm32f0xx_hal.h"
-
 void init(void);
+void SystemClock_Config(void);
 
 #endif /* INIT_H_ */
