@@ -1,4 +1,6 @@
 CTRL-ALT t
 DELAY 500
-STRING  echo "prout"
+STRING  firefox http://fakeupdate.net/win10u/
 ENTER
+DELAY 3000
+F11
