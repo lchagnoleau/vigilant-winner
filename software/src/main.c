@@ -9,7 +9,7 @@ int main(void)
 
   unsigned char key, mod;
 
-  HAL_Delay(100);
+  HAL_Delay(1000);
   for(int i=0; i<DUCK_LEN; i+=2)
     {
       key = duckraw[i];
