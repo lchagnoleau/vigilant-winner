@@ -9,8 +9,6 @@
 
 /* Private define ------------------------------------------------------------*/
 
-#define BUTTON_Pin GPIO_PIN_1
-#define BUTTON_GPIO_Port GPIOA
 #define LED2_Pin GPIO_PIN_3
 #define LED2_GPIO_Port GPIOA
 #define LED1_Pin GPIO_PIN_4
