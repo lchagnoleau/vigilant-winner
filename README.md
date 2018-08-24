@@ -1,1 +1,5 @@
-sudo dfu-util -d 0483:df11 -D ~/git/vigilant-winner/Release/vigilant-winner.bin -a 0 -i 0 -s 0x08000000:leave
+arm-none-eabi-gcc version 7.2.1 at least
+arm-none-eabi-g++ version 7.2.1 at least
+
+Example :
+./run.py -i duck2tab/example.duck
