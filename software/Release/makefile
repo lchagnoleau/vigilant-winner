@@ -66,6 +66,7 @@ vigilant-winner.elf: $(OBJS) $(USER_OBJS)
 	arm-none-eabi-g++ -mcpu=cortex-m0 -mthumb -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-move-loop-invariants -Wall -Wextra  -g -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"vigilant-winner.map" --specs=nano.specs -o "vigilant-winner.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
+	$(MAKE) --no-print-directory post-build
 
 vigilant-winner.bin: vigilant-winner.elf
 	@echo 'Invoking: GNU ARM Cross Create Flash Image'
@@ -84,8 +85,12 @@ clean:
 	-$(RM) $(CC_DEPS)$(C++_DEPS)$(OBJS)$(C_UPPER_DEPS)$(CXX_DEPS)$(SECONDARY_FLASH)$(SECONDARY_SIZE)$(ASM_DEPS)$(S_UPPER_DEPS)$(C_DEPS)$(CPP_DEPS) vigilant-winner.elf
 	-@echo ' '
 
+post-build:
+	-arm-none-eabi-objcopy -v -O binary "vigilant-winner.elf" "/home/cbeauduffe/git/vigilant-winner/software/bin/vigilant-winner.bin"
+	-@echo ' '
+
 secondary-outputs: $(SECONDARY_FLASH) $(SECONDARY_SIZE)
 
-.PHONY: all clean dependents
+.PHONY: all clean dependents post-build
 
 -include ../makefile.targets

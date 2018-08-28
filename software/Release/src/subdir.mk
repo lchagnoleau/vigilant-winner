@@ -29,7 +29,7 @@ C_DEPS += \
 src/%.o: ../src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: GNU ARM Cross C Compiler'
-	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-move-loop-invariants -Wall -Wextra  -g -DSTM32F042x6 -I"/home/lchagnoleau/git/vigilant-winner/software/include" -I"/home/lchagnoleau/git/vigilant-winner/software/system/include" -I"/home/lchagnoleau/git/vigilant-winner/software/system/include/cmsis" -I"/home/lchagnoleau/git/vigilant-winner/software/system/include/stm32f0xx" -I"/home/lchagnoleau/git/vigilant-winner/software/Middlewares" -I"/home/lchagnoleau/git/vigilant-winner/software/Middlewares/Inc" -I"/home/lchagnoleau/git/vigilant-winner/software/Drivers" -I"/home/lchagnoleau/git/vigilant-winner/software/Drivers/USB/Inc" -std=gnu11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m0 -mthumb -Os -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -fno-move-loop-invariants -Wall -Wextra  -g -DSTM32F042x6 -I"/home/cbeauduffe/git/vigilant-winner/software/include" -I"/home/cbeauduffe/git/vigilant-winner/software/system/include" -I"/home/cbeauduffe/git/vigilant-winner/software/system/include/cmsis" -I"/home/cbeauduffe/git/vigilant-winner/software/system/include/stm32f0xx" -I"/home/cbeauduffe/git/vigilant-winner/software/Middlewares" -I"/home/cbeauduffe/git/vigilant-winner/software/Middlewares/Inc" -I"/home/cbeauduffe/git/vigilant-winner/software/Drivers" -I"/home/cbeauduffe/git/vigilant-winner/software/Drivers/USB/Inc" -std=gnu11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
