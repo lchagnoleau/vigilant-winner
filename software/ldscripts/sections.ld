@@ -215,6 +215,14 @@ SECTIONS
         *(.glue_7t)
 
     } >FLASH
+    
+    .duckraw : ALIGN(4)
+    {
+    	. = ALIGN(4);
+   		KEEP(*(.duckraw)) 
+   		FILL(0xFF);
+   		. = LENGTH(DUCKRAW);
+    } > DUCKRAW
 
 	/* ARM magic sections */
 	.ARM.extab : ALIGN(4)
