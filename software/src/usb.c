@@ -37,15 +37,35 @@ void USB_send_char(unsigned char c, unsigned char mod)
 //  USBD_HID_SendReport(&hUsbDeviceFS, &keyboardHID, sizeof(struct keyboardHID_t));
 //  HAL_Delay(10);
 
-  uint8_t press_report[4] = {0x00};
-  press_report[0] = 0x01;
-  press_report[1] = mod;
-  press_report[3] = c;
-  USBD_HID_SendReport(&hUsbDeviceFS, press_report, 4);
-  HAL_Delay(10);
-  press_report[0] = 0x01;
-  press_report[1] = 0;
-  press_report[3] = 0;
-  USBD_HID_SendReport(&hUsbDeviceFS, press_report, 4);
-  HAL_Delay(10);
+  uint8_t press_report[8] = {0x00};
+      press_report[2] = 7;  // send 'd' 
+      press_report[3] = 18;  // send '0' 
+      press_report[4] = 16;  // send 'm' 
+      press_report[5] = 8;  // send 'e' 
+      press_report[6] = 17;  // send 'n' 
+      
+      USBD_HID_SendReport(&hUsbDeviceFS, press_report, 8);
+      
+      HAL_Delay(50); 
+      
+      //press_report[2] = 0;  // send button release
+      press_report[2] = 0;
+      press_report[3] = 0;
+      press_report[4] = 0;
+      press_report[5] = 0;
+      press_report[6] = 0;
+      
+      USBD_HID_SendReport(&hUsbDeviceFS, press_report, 8);
+
+  // uint8_t press_report[4] = {0x00};
+  // press_report[0] = 0x01;
+  // press_report[1] = mod;
+  // press_report[3] = c;
+  // USBD_HID_SendReport(&hUsbDeviceFS, press_report, 4);
+  // HAL_Delay(10);
+  // press_report[0] = 0x01;
+  // press_report[1] = 0;
+  // press_report[3] = 0;
+  // USBD_HID_SendReport(&hUsbDeviceFS, press_report, 4);
+  // HAL_Delay(10);
 }
