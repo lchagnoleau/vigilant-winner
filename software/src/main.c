@@ -2,7 +2,7 @@
 #include "main.h"
 #include "duckraw.h"
 
-duckSruct_t __attribute__ ((section(".duckraw"))) duckraw= {.size = 0x0000, .raw =  {0xFF}};
+volatile duckSruct_t __attribute__ ((section(".duckraw"))) duckraw= {.size = 0x0000, .raw =  {0xFF}};
 
 int main(void)
 {
