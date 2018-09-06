@@ -1,6 +1,6 @@
 # Vigilant-winner
 
-Vigilant-winner is a cheaper [ USB RUBBER DUCKY](https://hakshop.com/products/usb-rubber-ducky-deluxe).
+Vigilant-winner is a emulator for USB Keyboard. It works on both Linux and Windows OS. MacOS is not testet yet.
 You will find in this reposytory all both hardware and software file you need to make your own USB DUCK.
 
 
