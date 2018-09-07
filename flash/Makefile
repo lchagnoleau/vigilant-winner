@@ -1,6 +1,13 @@
-all : flash
+ifeq ($(PREFIX),)
+    PREFIX := /usr/local/bin
+endif
 
-flash : flash.c
-	gcc flash.c -o flash
+all : winner-flash
+
+flash : winner-flash.c
+	gcc winner-flash.c -o winner-flash
 clean :
-	rm flash
+	rm winner-flash
+
+install: winner-flash
+	install -m 655 winner-flash $(PREFIX)

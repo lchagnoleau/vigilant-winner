@@ -1,15 +1,34 @@
+
 # Vigilant-winner
 
+  
+
 Vigilant-winner is a emulator for USB Keyboard. It works on both Linux and Windows OS. MacOS is not testet yet.
+
 You will find in this reposytory all both hardware and software file you need to make your own USB DUCK.
 
+  
+  
 
 ## Needs
 
-To compile the software, you need **arm-none-eabi-gcc** and **arm-none-eabi-g++** version **7.2.1** at least.
+  
 
-## example
+To compile the software, you need **dfu-utils** installed on your system :
 
-Just exectute the following command :
+    sudo apt-get install dfu-util
 
-    ./run.py -i duck2tab/example.duck
+  
+
+## How to run
+
+  Compile the flasher :
+  
+
+    cd flash
+    make
+    sudo make install
+
+Generate your payload using this website : [Duck ToolKit](https://ducktoolkit.com/) and flash your USB key :
+
+    winner-flash inject.bin
