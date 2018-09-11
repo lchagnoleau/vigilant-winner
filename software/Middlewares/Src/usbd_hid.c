@@ -169,7 +169,7 @@ __ALIGN_BEGIN static uint8_t USBD_HID_CfgDesc[USB_HID_CONFIG_DESC_SIZ]  __ALIGN_
   0x00,         /*bCountryCode: Hardware target country*/
   0x01,         /*bNumDescriptors: Number of HID class descriptors to follow*/
   0x22,         /*bDescriptorType*/
-  HID_MOUSE_REPORT_DESC_SIZE,/*wItemLength: Total length of Report descriptor*/
+  HID_KEYBOARD_REPORT_DESC_SIZE,/*wItemLength: Total length of Report descriptor*/
   0x00,
   /******************** Descriptor of Mouse endpoint ********************/
   /* 27 */
@@ -195,7 +195,7 @@ __ALIGN_BEGIN static uint8_t USBD_HID_Desc[USB_HID_DESC_SIZ]  __ALIGN_END  =
   0x00,         /*bCountryCode: Hardware target country*/
   0x01,         /*bNumDescriptors: Number of HID class descriptors to follow*/
   0x22,         /*bDescriptorType*/
-  HID_MOUSE_REPORT_DESC_SIZE,/*wItemLength: Total length of Report descriptor*/
+  HID_KEYBOARD_REPORT_DESC_SIZE,/*wItemLength: Total length of Report descriptor*/
   0x00,
 };
 
@@ -214,41 +214,41 @@ __ALIGN_BEGIN static uint8_t USBD_HID_DeviceQualifierDesc[USB_LEN_DEV_QUALIFIER_
   0x00,
 };
 
-__ALIGN_BEGIN static uint8_t HID_MOUSE_ReportDesc[HID_MOUSE_REPORT_DESC_SIZE]  __ALIGN_END =
+__ALIGN_BEGIN static uint8_t HID_KEYBOARD_ReportDesc[HID_KEYBOARD_REPORT_DESC_SIZE]  __ALIGN_END =
 {
-  0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
-  0x09, 0x06,                    // USAGE (Keyboard)
-  0xa1, 0x01,                    // COLLECTION (Application)
-  0x75, 0x01,                    //   REPORT_SIZE (1)
-  0x95, 0x08,                    //   REPORT_COUNT (8)
-  0x05, 0x07,                    //   USAGE_PAGE (Keyboard)(Key Codes)
-  0x19, 0xe0,                    //   USAGE_MINIMUM (Keyboard LeftControl)(224)
-  0x29, 0xe7,                    //   USAGE_MAXIMUM (Keyboard Right GUI)(231)
-  0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-  0x25, 0x01,                    //   LOGICAL_MAXIMUM (1)
-  0x81, 0x02,                    //   INPUT (Data,Var,Abs) ; Modifier byte
-  0x95, 0x01,                    //   REPORT_COUNT (1)
-  0x75, 0x08,                    //   REPORT_SIZE (8)
-  0x81, 0x03,                    //   INPUT (Cnst,Var,Abs) ; Reserved byte
-  0x95, 0x05,                    //   REPORT_COUNT (5)
-  0x75, 0x01,                    //   REPORT_SIZE (1)
-  0x05, 0x08,                    //   USAGE_PAGE (LEDs)
-  0x19, 0x01,                    //   USAGE_MINIMUM (Num Lock)
-  0x29, 0x05,                    //   USAGE_MAXIMUM (Kana)
-  0x91, 0x02,                    //   OUTPUT (Data,Var,Abs) ; LED report
-  0x95, 0x01,                    //   REPORT_COUNT (1)
-  0x75, 0x03,                    //   REPORT_SIZE (3)
-  0x91, 0x03,                    //   OUTPUT (Cnst,Var,Abs) ; LED report padding
-  0x95, 0x06,                    //   REPORT_COUNT (6)
-  0x75, 0x08,                    //   REPORT_SIZE (8)
-  0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-  0x25, 0x65,                    //   LOGICAL_MAXIMUM (101)
-  0x05, 0x07,                    //   USAGE_PAGE (Keyboard)(Key Codes)
-  0x19, 0x00,                    //   USAGE_MINIMUM (Reserved (no event indicated))(0)
-  0x29, 0x65,                    //   USAGE_MAXIMUM (Keyboard Application)(101)
-  0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
-  0xc0                           // END_COLLECTION
-}; 
+		  0x05, 0x01,                    // USAGE_PAGE (Generic Desktop)
+		  0x09, 0x06,                    // USAGE (Keyboard)
+		  0xa1, 0x01,                    // COLLECTION (Application)
+		  0x75, 0x01,                    //   REPORT_SIZE (1)
+		  0x95, 0x08,                    //   REPORT_COUNT (8)
+		  0x05, 0x07,                    //   USAGE_PAGE (Keyboard)(Key Codes)
+		  0x19, 0xe0,                    //   USAGE_MINIMUM (Keyboard LeftControl)(224)
+		  0x29, 0xe7,                    //   USAGE_MAXIMUM (Keyboard Right GUI)(231)
+		  0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
+		  0x25, 0x01,                    //   LOGICAL_MAXIMUM (1)
+		  0x81, 0x02,                    //   INPUT (Data,Var,Abs) ; Modifier byte
+		  0x95, 0x01,                    //   REPORT_COUNT (1)
+		  0x75, 0x08,                    //   REPORT_SIZE (8)
+		  0x81, 0x03,                    //   INPUT (Cnst,Var,Abs) ; Reserved byte
+		  0x95, 0x05,                    //   REPORT_COUNT (5)
+		  0x75, 0x01,                    //   REPORT_SIZE (1)
+		  0x05, 0x08,                    //   USAGE_PAGE (LEDs)
+		  0x19, 0x01,                    //   USAGE_MINIMUM (Num Lock)
+		  0x29, 0x05,                    //   USAGE_MAXIMUM (Kana)
+		  0x91, 0x02,                    //   OUTPUT (Data,Var,Abs) ; LED report
+		  0x95, 0x01,                    //   REPORT_COUNT (1)
+		  0x75, 0x03,                    //   REPORT_SIZE (3)
+		  0x91, 0x03,                    //   OUTPUT (Cnst,Var,Abs) ; LED report padding
+		  0x95, 0x06,                    //   REPORT_COUNT (6)
+		  0x75, 0x08,                    //   REPORT_SIZE (8)
+		  0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
+		  0x25, 0x65,                    //   LOGICAL_MAXIMUM (101)
+		  0x05, 0x07,                    //   USAGE_PAGE (Keyboard)(Key Codes)
+		  0x19, 0x00,                    //   USAGE_MINIMUM (Reserved (no event indicated))(0)
+		  0x29, 0x65,                    //   USAGE_MAXIMUM (Keyboard Application)(101)
+		  0x81, 0x00,                    //   INPUT (Data,Ary,Abs)
+		  0xc0                           // END_COLLECTION
+};
 
 /**
   * @}
@@ -366,8 +366,8 @@ static uint8_t  USBD_HID_Setup (USBD_HandleTypeDef *pdev,
     case USB_REQ_GET_DESCRIPTOR: 
       if( req->wValue >> 8 == HID_REPORT_DESC)
       {
-        len = MIN(HID_MOUSE_REPORT_DESC_SIZE , req->wLength);
-        pbuf = HID_MOUSE_ReportDesc;
+        len = MIN(HID_KEYBOARD_REPORT_DESC_SIZE , req->wLength);
+        pbuf = HID_KEYBOARD_ReportDesc;
       }
       else if( req->wValue >> 8 == HID_DESCRIPTOR_TYPE)
       {

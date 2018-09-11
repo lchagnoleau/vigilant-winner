@@ -30,3 +30,13 @@ int main(void)
     HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
   }
 }
+
+void _Error_Handler(char *file, int line)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  while(1)
+  {
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
